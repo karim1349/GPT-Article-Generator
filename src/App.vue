@@ -1,5 +1,5 @@
 <template>
-  <div style="width:60%;margin-left:20%">
+  <div style="width:80%;margin-left:10%">
     <div>
       <label>GPT API Key : </label>
       <input v-model="apiKey"/>
@@ -13,7 +13,7 @@
     <div v-if="loading">
       <p>Chargement...</p>
     </div>
-    <div v-html="markdownToHtml(articleContent)" style="white-space:pre-wrap">
+    <div v-html="markdownToHtml(articleContent)" style="white-space:pre-wrap; text-align:justify;">
     </div>
   </div>
 </template>
