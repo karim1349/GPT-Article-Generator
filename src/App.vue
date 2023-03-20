@@ -1,19 +1,19 @@
 <template>
   <div style="width:80%;margin-left:10%">
-    <div>
+    <div class="shadow_box">
       <label>GPT API Key : </label>
-      <input v-model="apiKey"/>
+      <input v-model="apiKey" />
     </div>
-    <div style="margin:20px">
+    <div style="margin-top:20px;margin-bottom: 20px;" class="shadow_box">
       <label>Titre d'article :</label>
       <input v-model="articleTitle" />
     </div>
 
     <button @click="callGPT">Générer</button>
     <div v-if="loading">
-      <p>Chargement...</p>
+      <p class="loading">Chargement...</p>
     </div>
-    <div v-html="markdownToHtml(articleContent)" style="white-space:pre-wrap; text-align:justify;">
+    <div v-html="markdownToHtml(articleContent)" style="white-space:pre-wrap; text-align:justify;" class="generate_text">
     </div>
   </div>
 </template>
@@ -92,5 +92,62 @@ Now Write An Article On This Topic : '`,
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+
+.shadow_box {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+.loading {
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+}
+
+div:last-of-type {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.generate_text {
+  text-align: left;
 }
 </style>
